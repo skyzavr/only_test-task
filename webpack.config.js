@@ -2,9 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/main.tsx',
+  entry: {
+    bundle: './src/main.tsx',
+  },
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
@@ -36,13 +39,21 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: `@use '@shared/styles/main.scss' as *;`,
+            },
+          },
+        ],
         exclude: /node_modules/,
-
-        generator: { filename: 'style.css' },
       },
     ],
   },
+
   resolve: {
     alias: {
       '@app': path.resolve(__dirname, 'src/app/'),
@@ -57,13 +68,14 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.html'),
     }),
+    new MiniCssExtractPlugin({ filename: 'style.css' }),
     new ESLintPlugin({
       extensions: ['.ts', '.tsx'],
     }),
