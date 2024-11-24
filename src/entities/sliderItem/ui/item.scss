@@ -1,0 +1,31 @@
+.itemWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  gap: 20px;
+
+  @media (min-width: 1200px) {
+    gap: 30px;
+  }
+
+  & .itemTitle {
+    color: $blue;
+    font: $bodyMobileRegular;
+    font-weight: 600 !important;
+
+    @media (min-width: 1200px) {
+      font: $bodyDesktopRegular;
+    }
+  }
+
+  & .itemDescription {
+    color: $darkBlue;
+    font: $textMobileRegular;
+    text-align: left;
+
+    @media (min-width: 1200px) {
+      font: $textDesktopRegular;
+    }
+  }
+}
