@@ -1,0 +1,19 @@
+/* Numbers */
+
+.numbersWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+
+  & > h2 {
+    font: $h1BoldMobile;
+  }
+
+  @media (min-width: 1200px) {
+    gap: 120px;
+
+    & > h2 {
+      font: $h1BoldDesktop;
+    }
+  }
+}
