@@ -1,0 +1,67 @@
+.swiperSectionWrapper {
+  display: flex;
+  gap: 11px;
+  flex-direction: column;
+
+  @media (min-width: 1200px) {
+    gap: 20px;
+  }
+
+  & .swiperSectionTitle {
+    color: $darkBlue;
+    font: $textMobileRegular;
+  }
+
+  & .swiperSectionBtns {
+    display: flex;
+    gap: 8px;
+
+    @media (min-width: 1200px) {
+      gap: 20px;
+    }
+
+    & button {
+      background-color: transparent;
+      border: 1px solid $darkBlue50;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.4s;
+
+      & > svg {
+        width: 6px;
+        height: 8px;
+
+        @media (min-width: 1200px) {
+          width: 10px;
+          height: 14px;
+        }
+      }
+
+      &:hover {
+        background-color: $white;
+        transition: 0.4s;
+      }
+
+      @media (min-width: 1200px) {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    & .disabled {
+      border: 1px solid $darkBlue20;
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      & > svg > path {
+        stroke: $darkBlue20;
+      }
+    }
+  }
+}
