@@ -1,0 +1,29 @@
+/* main header */
+
+.mainScreenDescription {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+
+  @media (min-width: 1200px) {
+    gap: 40px;
+  }
+
+  & .mainScreenPlate {
+    @media (min-width: 1200px) {
+      width: 5px;
+      height: 130px;
+      background: linear-gradient(180deg, #4775e8 0%, #ef5da8 100%);
+    }
+  }
+
+  & .mainScreenHeader {
+    color: $darkBlue;
+    font: $h2BoldMobile;
+    max-width: 350px;
+
+    @media (min-width: 1200px) {
+      font: $h2BoldDesktop;
+    }
+  }
+}
