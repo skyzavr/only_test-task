@@ -27,7 +27,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px !important;
+  width: auto;
+
+  @media (min-width: 360px) {
+    width: 300px !important;
+  }
 
   @media (min-width: 1440px) {
     width: 400px !important;
